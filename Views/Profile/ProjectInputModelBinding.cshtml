@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ProjectInputModelBinding";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+<h2>Value passing from View to Action using Model Binding</h2>
+
+<form method="post">
+    <div>
+        <label for="titlemb">Title:</label>
+        <input type="text" id="titlemb" name="TitleMB"/>
+    </div>
+
+    <div>
+        <label for="coursemb">Course:</label>
+        <input type="text" id="coursemb" name="CourseMB" />
+    </div>
+
+    <div>
+        <label for="descriptionmb">Description:</label>
+        <input type="text" id="descriptionmb" name="DescriptionMB" />
+    </div>
+
+    <button type="submit">Add</button>
+</form>
+
+@*Value passing from View to Action using Model Binding*@
+<br />
+@ViewBag.TitleMB
+<br />
+@ViewBag.CourseMB
+<br />
+@ViewBag.DescriptionMB
+
+<br />
+
+@*View all the validation messages in one place using ValidationSummary*@
+@Html.ValidationSummary()

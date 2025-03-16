@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "EducationInput";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+<h2>Value passing from View to Action using FormCollection Object</h2>
+
+<form method="post">
+    <div>
+        <label for="institute">Institute:</label>
+        <input type="text" id="institute" name="Institute" required />
+    </div>
+
+    <div>
+        <label for="degree">Email:</label>
+        <input type="text" id="degree" name="Degree" required />
+    </div>
+
+    <div>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="Year" required />
+    </div>
+
+    <div>
+        <label for="result">Result:</label>
+        <input type="text" id="result" name="Result" required />
+    </div>
+
+    <button type="submit">Add</button>
+</form>
+
+@*Value passing from View to Action using FormCollection Object*@
+<br />
+@ViewBag.Institute
+<br />
+@ViewBag.Degree
+<br />
+@ViewBag.Year
+<br />
+@ViewBag.Result

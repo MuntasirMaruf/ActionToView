@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+<h2>Projects</h2>
+
+@{
+    int i = 1;
+}
+
+@*Value passing from Action to View*@
+
+@foreach (var item in Model)
+{
+    <h4>@i</h4>
+    <p>Title: @item.Title</p>
+    <p>Course: @item.Course</p>
+    <p>Description: @item.Description</p>
+
+    i++;
+}

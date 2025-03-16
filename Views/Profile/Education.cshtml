@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Education";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+<h2>Education</h2>
+
+@*@Model.Institute
+    @Model.Degree
+    @Model.Year
+    @Model.Result*@
+
+@*Value passing from Action to View*@
+
+<table class="table">
+    <tr>
+        <th>Institute</th>
+        <th>Degree</th>
+        <th>Year</th>
+        <th>Result</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Institute</td>
+            <td>@item.Degree</td>
+            <td>@item.Year</td>
+            <td>@item.Result</td>
+        </tr>
+    }
+</table>
+
