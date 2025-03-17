@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "StudentInput";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+<h2>Student Input With Validation</h2>
+
+<form method="post">
+    <input type="text" class="form-control" value="@Model.Name" placeholder="Name" name="Name" />
+    <p class="text-danger">@Html.ValidationMessage("Name")</p>
+
+    <input type="text" class="form-control" value="@Model.Id" placeholder="Id" name="Id" />
+    <p class="text-danger">@Html.ValidationMessage("Id")</p>
+
+    <input type="date" class="form-control" value="@Model.DOB" placeholder="DOB" name="DOB" />
+    <p class="text-danger">@Html.ValidationMessage("Dob")</p>
+
+    <input type="text" class="form-control" value="@Model.Email" placeholder="Email" name="Email" />
+    <p class="text-danger">@Html.ValidationMessage("Email")</p>
+
+    <input type="submit" class="btn btn-primary" value="Add" />
+
+
+</form>

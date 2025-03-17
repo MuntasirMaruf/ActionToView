@@ -126,8 +126,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EducationClass.cs" />
+    <Compile Include="Models\EmailAttribute.cs" />
+    <Compile Include="Models\MinAgeAttribute.cs" />
     <Compile Include="Models\ProjectClass.cs" />
     <Compile Include="Models\ProjectInputModel.cs" />
+    <Compile Include="Models\StudentInputClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +193,7 @@
     <Content Include="Views\Profile\EducationInput.cshtml" />
     <Content Include="Views\Profile\ProjectInput.cshtml" />
     <Content Include="Views\Profile\ProjectInputModelBinding.cshtml" />
+    <Content Include="Views\Profile\StudentInput.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

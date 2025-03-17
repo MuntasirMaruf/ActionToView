@@ -117,6 +117,15 @@ namespace ActionToView.Controllers
         }
 
         // Model Binding *****************************
+
+        [HttpGet] // Add this attribute to avoid ambiguous method error
+        public ActionResult ProjectInputModelBinding()
+        {
+
+            return View(new ProjectInputModel());
+        }
+
+        [HttpPost] // Add this attribute to avoid ambiguous method error
         public ActionResult ProjectInputModelBinding(ProjectInputModel pm)
         {
             if(ModelState.IsValid)
@@ -127,7 +136,20 @@ namespace ActionToView.Controllers
                 return View();
             }
             
-            return View();
+            return View(pm);
+        }
+
+
+        // Validation *********************************************************************
+        public ActionResult StudentInput(StudentInputClass s)
+        {
+            if (ModelState.IsValid)
+            {
+
+                return RedirectToAction("About", "Home");
+            }
+
+            return View(s);
         }
     }
 }
