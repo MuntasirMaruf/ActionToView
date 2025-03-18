@@ -5,11 +5,11 @@ namespace ActionToView.Validators
 {
     public class MinAgeAttribute : ValidationAttribute
     {
-        private readonly int _minAge;
+        private readonly int minAge;
 
-        public MinAgeAttribute(int minAge)
+        public MinAgeAttribute(int ma)
         {
-            _minAge = minAge;
+            minAge = ma;
             ErrorMessage = $"Age must be at least {minAge} years old.";
         }
 
@@ -29,7 +29,7 @@ namespace ActionToView.Validators
                     age--;
                 }
 
-                if (age >= _minAge)
+                if (age >= minAge)
                 {
                     return ValidationResult.Success;
                 }

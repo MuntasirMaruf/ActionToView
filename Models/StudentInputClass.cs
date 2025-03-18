@@ -10,7 +10,7 @@ namespace ActionToView.Models
 	public class StudentInputClass
 	{
         [Required]
-        [RegularExpression(@"^[a-zA-Z\s\.\-]+$", ErrorMessage = "Only alphabets, spaces and (.dot, -dash")]
+        [RegularExpression(@"^[a-zA-Z\s\.\-]+$", ErrorMessage = "Only alphabets, spaces and (.dot, -dash)")]
         public string Name { get; set; }
 
         [Required]
@@ -22,7 +22,7 @@ namespace ActionToView.Models
         public string DOB { get; set; }
 
         [Required]
-        [EmailMatchesId("Id")]
+        [CustomEmail("Id")]
         public string Email { get; set; }
     }
 }

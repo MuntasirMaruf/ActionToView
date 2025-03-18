@@ -126,7 +126,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EducationClass.cs" />
-    <Compile Include="Models\EmailAttribute.cs" />
+    <Compile Include="Models\CustomEmailAttribute.cs" />
     <Compile Include="Models\MinAgeAttribute.cs" />
     <Compile Include="Models\ProjectClass.cs" />
     <Compile Include="Models\ProjectInputModel.cs" />

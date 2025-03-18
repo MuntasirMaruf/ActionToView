@@ -1,25 +1,26 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace ActionToView.Validators
 {
-    public class EmailMatchesIdAttribute : ValidationAttribute
+    public class CustomEmailAttribute : ValidationAttribute
     {
-        private readonly string _idPropertyName;
+        private readonly string idPropertyName;
 
-        public EmailMatchesIdAttribute(string idPropertyName)
+        public CustomEmailAttribute(string ip)
         {
-            _idPropertyName = idPropertyName;
+            idPropertyName = ip;
             ErrorMessage = "Email must be in the format XX-XXXXX-X@student.aiub.edu and match the ID.";
         }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext) // here value is the email from the input field
         {
-            var idProperty = validationContext.ObjectType.GetProperty(_idPropertyName);  // here we are getting the ID property from the model
+            var idProperty = validationContext.ObjectType.GetProperty(idPropertyName);  // here we are getting the ID property from the model
             if (idProperty == null)
             {
-                return new ValidationResult($"Property '{_idPropertyName}' not found.");
+                return new ValidationResult($"Property '{idPropertyName}' not found.");
             }
 
             var idValue = idProperty.GetValue(validationContext.ObjectInstance)?.ToString();   // here we are getting the value of the ID property
@@ -30,11 +31,17 @@ namespace ActionToView.Validators
                 return new ValidationResult("ID and Email are required.");
             }
 
-            string expectedEmail = $"{idValue}@student.aiub.edu";
+            if (Regex.IsMatch(idValue, @"^\d{2}-\d{5}-[1-3]$"))
+            {
+                string expectedEmail = $"{idValue}@student.aiub.edu";
 
-            return emailValue.Equals(expectedEmail, StringComparison.OrdinalIgnoreCase)
-                ? ValidationResult.Success
-                : new ValidationResult(ErrorMessage);
+                return emailValue.Equals(expectedEmail, StringComparison.OrdinalIgnoreCase)
+                    ? ValidationResult.Success
+                    : new ValidationResult(ErrorMessage);
+            }
+
+            return new ValidationResult("Invalid Id.");
+
         }
     }
 }

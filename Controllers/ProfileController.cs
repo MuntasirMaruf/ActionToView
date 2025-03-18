@@ -88,13 +88,7 @@ namespace ActionToView.Controllers
         }
 
         // FormCollection Object *****************************
-        [HttpGet] // Add this attribute to avoid ambiguous method error
-        public ActionResult EducationInput()
-        {
-            return View();
-        }
 
-        [HttpPost] // Add this attribute to avoid ambiguous method error
         public ActionResult EducationInput(FormCollection fc)
         {
             ViewBag.Institute = fc["Institute"];
@@ -121,7 +115,6 @@ namespace ActionToView.Controllers
         [HttpGet] // Add this attribute to avoid ambiguous method error
         public ActionResult ProjectInputModelBinding()
         {
-
             return View(new ProjectInputModel());
         }
 
